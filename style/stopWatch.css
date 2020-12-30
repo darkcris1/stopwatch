@@ -1,0 +1,114 @@
+body {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  background: linear-gradient(#96c9e1, #b1e8b1);
+  height: 100vh;
+}
+.stopwatchCont {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+}
+.time {
+  display: flex;
+  font-size: 115px;
+  color: #423e3e;
+  width: 10ch;
+  font-weight: bolder;
+  overflow: hidden;
+}
+.buttonCont {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-auto-rows: 100px;
+  grid-gap: 4px;
+}
+.buttonCont button {
+  color: white;
+  cursor: pointer;
+  border-width: 0;
+  font-weight: bolder;
+  outline: none;
+  border-radius: 3px;
+  font-size: 70px;
+  padding: 3px 0;
+}
+.buttonCont .start {
+  background: linear-gradient(#1b821b, #60d660);
+}
+.buttonCont .reset {
+  background: linear-gradient(#2f2fd1, #6868e9);
+}
+.buttonCont .reset:active {
+  background: linear-gradient(0deg, #2f2fd1, #6868e9);
+}
+.buttonCont .lap {
+  grid-column: span 2;
+  background: linear-gradient(0deg, #b8b827, #d7d758);
+}
+.buttonCont .lap:active {
+  background: linear-gradient(#b8b827, #d7d758);
+}
+.laps {
+  bottom: 15%;
+  transform: translateX(-7%);
+  height: 20%;
+  overflow: auto;
+  background: none;
+  list-style: none;
+  scroll-behavior: auto;
+}
+.laps li {
+  width: 17ch;
+  color: black;
+  font-size: 42px;
+  font-weight: bolder;
+  animation: intro 0.3s ease;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+.laps li:first-child {
+  color: transparent;
+  background-image: linear-gradient(0deg, black, white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(2px 1px black);
+}
+@keyframes intro {
+  from {
+    opacity: 0;
+    height: 0;
+    transform: translateY(-5px) translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    height: 20px;
+    transform: translateY(0px);
+  }
+}
+@media (max-width: 600px) {
+  .buttonCont {
+    gap: 2px;
+    grid-template-columns: repeat(2, 100px);
+    grid-auto-rows: minmax(25px, auto);
+  }
+  .time {
+    font-size: 40px;
+  }
+  .stopwatchCont {
+    transform: scale(1);
+  }
+  .buttonCont button {
+    font-size: 20px;
+  }
+  .laps li {
+    font-size: 16px;
+  }
+}
